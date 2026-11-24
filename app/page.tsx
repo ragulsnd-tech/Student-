@@ -145,10 +145,26 @@ export default function Home() {
           <div style={{marginTop:15}}><StudentTable students={filtered} onAttendance={updateAttendance} onDelete={deleteStudent} /></div>
         </section>}
 
-        {page === "Attendance" && <section className="panel">
-          <div className="panel-head"><div><h2>Attendance register</h2><span className="muted">Select the status to toggle Present / Absent</span></div></div>
-          <StudentTable students={filtered} onAttendance={updateAttendance} onDelete={deleteStudent} showAttendance />
-        </section>}
+        
+{page === "Attendance" && (
+  <section className="panel">
+    <div className="panel-head">
+      <div>
+        <h2>Attendance register</h2>
+        <span className="muted">
+          Select the status to toggle Present / Absent
+        </span>
+      </div>
+    </div>
+    <StudentTable
+      students={filtered}
+      onAttendance={updateAttendance}
+      onDelete={deleteStudent}
+      showAttendance
+    />
+  </section>
+)}
+        
 
         {page === "Marks" && <section className="panel">
           <div className="panel-head"><div><h2>Examination marks</h2><span className="muted">Enter a score between 0 and 100</span></div></div>
